@@ -13,7 +13,10 @@ body {
     /* display: flex;
     flex-wrap: wrap; */
     min-height: 70vh;
+    max-height: 70vh;
     background-color: blue;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
 
 .footer-box {
@@ -26,10 +29,13 @@ body {
     float: left;
     background-color: white;
     padding: 5px;
-    margin: 5px;
+    margin-right: 5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     width: 100%;
     height: 100%;
     text-align: center;
+    border-radius: 10px;
 }
 
 /* Clear floats after the columns */
@@ -39,11 +45,37 @@ body {
     clear: both;
 }
 
-.col {
-    background-color: red;
-}
-
 .card-img-top {
     height: 100px;
     width: 100px;
 }
+
+.product-info {
+    display: block;
+    background-color: aliceblue;
+    position: fixed;
+    height: 75%;
+    width: 50%;
+    top: 12.5%;
+    left: 25%;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px rgba(0,0,0, 0.2);
+    scrollbar-width: none;
+}
+
+.product-info > *{
+    background-color: white;
+    
+}
+
+#levAdress > *{
+margin: 2px;
+}
+
+
+#bstInfoSite > * {
+color: white;
+size: 50px;
+}
+

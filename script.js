@@ -1,0 +1,2 @@
+specifikKnapp.addEventListener;
+
