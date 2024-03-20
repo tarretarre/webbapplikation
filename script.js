@@ -10,6 +10,33 @@ async function fetchProducts() {
 
 const productList = await fetchProducts()
 
+
+/*
+function createElementFromString(inputStr) {
+    const div = document.createElement('div');
+    div.innerHTML = inputStr;
+
+    return div.firstChild;
+}
+
+function loadProducts() {
+    productList.forEach(product => {
+        const xhr = new XMLHttpRequest();
+        xhr.onload = () => {
+            const card = createElementFromString(xhr.response)
+
+            card.querySelector('.card-img-top').src = product.image;
+            card.querySelector('.card-title').textContent = product.title;
+            card.querySelector('.card-price').textContent = product.price;
+
+            document.getElementById('container-cards').appendChild(card)
+        }
+
+        xhr.open('GET', 'card.html')
+        xhr.send()
+    })
+} */
+
 async function createCardTemplate() {
     try {
         const response = await fetch('./card.html');
@@ -36,7 +63,7 @@ async function createCard() {
         card.querySelector('.card-title').textContent = product.title;
         card.querySelector('.card-price').textContent = product.price;
 
-        document.getElementById("container-cards").appendChild(card);
+        document.getElementById("container-cards").appendChild(card.firstChild);
     });
 }
 
