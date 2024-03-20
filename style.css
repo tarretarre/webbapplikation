@@ -1,18 +1,33 @@
 body {
   width: 100vw;
   height: 100vh;
+  min-width: 375px;
 }
 
 .head-box {
-  background-color: aqua;
+  background-color: #023E8A;
   min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-align: center;
+  color: #CAF0F8;
+}
+
+.logo {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+.logo2 {
+  font-size: 50px;
+  font-weight: bold;
 }
 
 .center-box {
   min-height: 70vh;
   max-height: 70vh;
-  background-color: blue;
+  background-color: #0077B6;
   overflow-y: scroll;
   scrollbar-width: none;
 }
@@ -25,7 +40,8 @@ body {
 
 .footer-box {
   min-height: 10vh;
-  background-color: rgb(255, 145, 0);
+  background-color: #023E8A;
+  color: #CAF0F8;  
 }
 
 .column {
@@ -36,6 +52,7 @@ body {
   width: 100%;
   text-align: center;
   border-radius: 10px;
+  color: #023E8A;
 }
 
 /* Clear floats after the columns */
@@ -52,7 +69,7 @@ body {
 
 .product-info {
   display: none;
-  background-color: aliceblue;
+  background-color: #CAF0F8;
   position: fixed;
   height: 75%;
   width: 50%;
@@ -60,12 +77,12 @@ body {
   left: 25%;
   overflow-y: auto;
   border-radius: 10px;
-  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 5px 5px 5px rgba(0, 0, 0, 0.2);
   scrollbar-width: none;
 }
 
 .product-info > * {
-  background-color: white;
+  background-color: #CAF0F8;
 }
 
 #levAdress > * {
