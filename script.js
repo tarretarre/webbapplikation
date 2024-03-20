@@ -88,6 +88,14 @@ async function createCard() {
 
 createCard();
 
+const buyButton = document.querySelector('.buy-button');
+buyButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    createCustomerList();
+    window.location.href = 'order-conf.html';
+});
+
+
 function productInfo(image, title, desc, price, productId) {
     const productInfo = document.querySelector('.product-info');
     productInfo.querySelector('.card-img-top').src = image;
@@ -101,15 +109,30 @@ function productInfo(image, title, desc, price, productId) {
     
 }
 
-
 function createCustomerList(){
-    const pictureOfProduct = productInfo.querySelector('.card-img-top').src = image;
-    const titleOfProduct = productInfo.querySelector('.info-title').textContent = title;
-    const descOfProduct = productInfo.querySelector('.info-desc').textContent = desc;
-    const priceOfProduct = productInfo.querySelector('.info-price').textContent = price;
-    const listKund = [pictureOfProduct, titleOfProduct, descOfProduct, priceOfProduct]
+    var nameOfCustomer = document.querySelector('.name').value;
+    var emailOfCustomer = document.querySelector('.mail').value;
+    var phoneOfCustomer = document.querySelector('.phone').value;
+    var adressOfCustomer = document.querySelector('.adress').value;
+    var zipcodeOfCustomer = document.querySelector('.zipcode').value;
+    var cityOfCustomer = document.querySelector('.city').value;
+    
+    var customerData = {
+        Name: nameOfCustomer,
+        email: emailOfCustomer,
+        phone: phoneOfCustomer,
+        address: adressOfCustomer,
+        zipcode: zipcodeOfCustomer,
+        city: cityOfCustomer
+    };
+
+    localStorage.setItem('customerData', JSON.stringify(customerData));
+
 }
 
 function createProductList(image, title, desc, price, productId){
     const listProduct = [image, title, desc, price, productId]
 }
+
+
+
