@@ -53,6 +53,10 @@ async function createCard() {
 
             const buyButton = document.querySelector('.buy-button')
             buyButton.setAttribute('buyButtonId', product.id)
+
+            // fyller kundvagnen
+            const imageKundvagn = document.getElementById('kundvagn-ikon');
+            imageKundvagn.src = 'images/KundvagnFull.png';
         });
 
         document.getElementById("container-cards").appendChild(card.firstChild);
@@ -129,6 +133,5 @@ function createProductList(){
     localStorage.setItem('productData', JSON.stringify(productData));
 
 }
-
 
 
