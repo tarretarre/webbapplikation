@@ -10,33 +10,6 @@ async function fetchProducts() {
 
 const productList = await fetchProducts()
 
-
-/*
-function createElementFromString(inputStr) {
-    const div = document.createElement('div');
-    div.innerHTML = inputStr;
-
-    return div.firstChild;
-}
-
-function loadProducts() {
-    productList.forEach(product => {
-        const xhr = new XMLHttpRequest();
-        xhr.onload = () => {
-            const card = createElementFromString(xhr.response)
-
-            card.querySelector('.card-img-top').src = product.image;
-            card.querySelector('.card-title').textContent = product.title;
-            card.querySelector('.card-price').textContent = product.price;
-
-            document.getElementById('container-cards').appendChild(card)
-        }
-
-        xhr.open('GET', 'card.html')
-        xhr.send()
-    })
-} */
-
 async function createCardTemplate() {
     try {
         const response = await fetch('./card.html');
@@ -77,21 +50,31 @@ async function createCard() {
                 "$" + product.price, 
                 product.id);
             console.log(cardButton.getAttribute('buttonid'))
+
+            const buyButton = document.querySelector('.buy-button')
+            buyButton.setAttribute('buyButtonId', product.id)
         });
 
         document.getElementById("container-cards").appendChild(card.firstChild);
-    });
 
-    
+    });
     console.log('cards created')
 }
 
 createCard();
 
+
+/* const buyButton2 = document.querySelector('.buy-button');
+buyButton2.addEventListener('click', function(event) {
+    event.preventDefault();
+    
+}); */
+
 const buyButton = document.querySelector('.buy-button');
 buyButton.addEventListener('click', function(event) {
     event.preventDefault();
     createCustomerList();
+    createProductList();
     window.location.href = 'order-conf.html';
 });
 
@@ -127,11 +110,24 @@ function createCustomerList(){
     };
 
     localStorage.setItem('customerData', JSON.stringify(customerData));
-
 }
 
-function createProductList(image, title, desc, price, productId){
-    const listProduct = [image, title, desc, price, productId]
+function createProductList(){
+
+    const productId = document.querySelector('.buy-button').getAttribute('buyButtonId')
+
+    const product = productList.find(product => product.id === parseInt(productId))
+    console.log(product.price)
+
+    var productData = {
+        titleOfProduct: product.title,
+        descOfProduct: product.description,
+        priceOfProduct: product.price.toString(),
+        idOfProduct: product.id.toString()
+    }; 
+
+    localStorage.setItem('productData', JSON.stringify(productData));
+
 }
 
 
