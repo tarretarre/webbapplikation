@@ -115,9 +115,6 @@ a:hover {
 
 @media (max-width: 475px) {
   .product-info {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 100%;
       height: 100%;
       left: 0;
@@ -129,9 +126,6 @@ a:hover {
 
 @media (min-width: 475px) and (max-width: 600px) {
   .product-info {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       width: 70%;
       height: 75%;
       left: 15%;
