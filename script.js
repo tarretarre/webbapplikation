@@ -35,7 +35,7 @@ async function createCard() {
 
         card.querySelector('.card-img-top').src = product.image;
         card.querySelector('.card-title').textContent = product.title;
-        card.querySelector('.card-price').textContent = "$" + product.price;
+        card.querySelector('.card-price').textContent = `$${product.price}` ;
         
         const cardButton = card.querySelector('.card-button');
         cardButton.setAttribute('buttonid', product.id);
@@ -47,7 +47,7 @@ async function createCard() {
             productInfo(product.image, 
                 product.title, 
                 product.description, 
-                "$" + product.price, 
+                `Price: $${product.price}`, 
                 product.id);
             console.log(cardButton.getAttribute('buttonid'))
 
@@ -55,8 +55,9 @@ async function createCard() {
             buyButton.setAttribute('buyButtonId', product.id)
 
             // fyller kundvagnen
-            const imageKundvagn = document.getElementById('kundvagn-ikon');
-            imageKundvagn.src = 'images/KundvagnFull.png';
+            const kundvagnIcon = document.getElementById('kundvagn-ikon');
+            kundvagnIcon.src = 'images/KundvagnFullNy.png';
+            
         });
 
         document.getElementById("container-cards").appendChild(card.firstChild);
@@ -77,9 +78,33 @@ buyButton2.addEventListener('click', function(event) {
 const buyButton = document.querySelector('.buy-button');
 buyButton.addEventListener('click', function(event) {
     event.preventDefault();
-    createCustomerList();
-    createProductList();
-    window.location.href = 'order-conf.html';
+
+    const form = document.querySelector('#kontaktForm')
+
+    if(!form.checkValidity()) {
+        console.log('12')
+        const inputs = document.querySelectorAll("input")
+        let firstInvalidInput = null;
+
+        for (let input of inputs) {
+            if (!input.checkValidity()) {
+                firstInvalidInput = input;
+                break;
+            }
+        }
+
+        firstInvalidInput.reportValidity();
+        firstInvalidInput = null;
+    } else {
+        /* const emailInput = document.querySelector('.mail');
+        if (!validateEmail(emailInput.value)) {
+            alert('Vänligen ange en giltig e-postadress.');
+            return;
+        } */
+        createCustomerList();
+        createProductList();
+        window.location.href = 'order-conf.html';
+    }
 });
 
 
@@ -124,14 +149,11 @@ function createProductList(){
     console.log(product.price)
 
     var productData = {
-        titleOfProduct: product.title,
-        descOfProduct: product.description,
-        priceOfProduct: product.price.toString(),
-        idOfProduct: product.id.toString()
+        Title: product.title,
+        Price: product.price.toString(),
+        Articlenumber: product.id.toString()
     }; 
 
     localStorage.setItem('productData', JSON.stringify(productData));
 
 }
-
-

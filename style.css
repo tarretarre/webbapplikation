@@ -19,9 +19,11 @@ body {
   font-weight: bold;
 }
 
-.logo2 {
-  font-size: 50px;
-  font-weight: bold;
+.thanks-msg {
+  margin-top: 20px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .center-box {
@@ -92,4 +94,18 @@ body {
 #bstInfoSite > * {
   color: white;
   size: 50px;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: #CAF0F8;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #ADE8F4;
+}
+
+.confi-p{
+  max-width: 25%;
 }

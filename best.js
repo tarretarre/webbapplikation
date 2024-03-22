@@ -21,7 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
         for(var key in productData){
             if(productData.hasOwnProperty(key)){
                 var pTagg = document.createElement('p');
-                pTagg.textContent = key.charAt(0).toUpperCase() + key.slice(1) + ': ' + productData[key].charAt(0).toUpperCase() + productData[key].slice(1);
+                pTagg.className = 'confi-p'
+                if(key === 'Price') {
+                    pTagg.textContent = '$'
+                }
+                pTagg.textContent = key.charAt(0).toUpperCase() + key.slice(1) + ': ' + pTagg.textContent + productData[key].charAt(0).toUpperCase() + productData[key].slice(1);
                 bestProduct.appendChild(pTagg);
             } else {
                 console.log("Något gick fel, saknar nyckel")
@@ -30,6 +34,21 @@ document.addEventListener('DOMContentLoaded', function() {
     } else {
         console.log(`Något gick fel, saknar Input`)
     }
+
+    var datumBstElement = document.getElementById('datumBst')
+    datumBstElement.innerHTML = '<h5>Beställningsdatum: ' + genereraDagensDatum() + '</h5>';
+    
 });
 
+
+function genereraDagensDatum() {
+    var idag = new Date();
+    var dagensDatum = idag.getDate();
+    var dagensMånad = idag.getMonth() + 1;
+    var dagensÅr = idag.getFullYear();
+
+    var datumText = dagensDatum + '-' + dagensMånad + '-' + dagensÅr;
+
+    return datumText;
+}
 
