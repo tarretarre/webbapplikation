@@ -46,9 +46,9 @@ function genereraDagensDatum() {
     var dagensDatum = idag.getDate();
     var dagensMånad = idag.getMonth() + 1;
     var dagensÅr = idag.getFullYear();
+    var tidPunkt = '['  +idag.getHours() + ': '  + idag.getMinutes() + ': ' + idag.getSeconds() + ']';
 
-    var datumText = dagensDatum + '-' + dagensMånad + '-' + dagensÅr;
+    var datumText = dagensDatum + '-' + dagensMånad + '-' + dagensÅr + ' ' + tidPunkt;
 
     return datumText;
 }
-

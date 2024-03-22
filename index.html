@@ -15,7 +15,7 @@
         <div class="product-info">
             <div class="col d-flex flex-column justify-content-center align align-items-center mt-4">
                 <img src="" class="card-img-top" alt="">
-                <h2 class="info-title"></h2>
+                <h2 class="info-title text-center"></h2>
                 <p class="text-center info-desc">
 
                 </p>
@@ -25,8 +25,7 @@
             <div class="col d-flex flex-column justify-content-center align align-items-center mt-4">
                 <form id="kontaktForm" >
                     <label id="namn">Namn:</label><br>
-                    <input type="name" class="name" placeholder="Namn" minlength="2" maxlength="50" pattern="[A-Öa-ö]+"
-                        required validation><br><br>
+                    <input type="text" autocomplete="given-name" class="name" placeholder="Namn" minlength="2" maxlength="50" pattern="[A-Öa-ö]+" required><br><br>
                     <label id="epost">Epost:</label><br>
                     <input type="email" class="mail" placeholder="Exempel@gmail.com" maxlength="50" required><br><br>
                     <label id="telefonnummer">Telefonnummer:</label><br>
@@ -34,37 +33,36 @@
                         required><br><br>
                     <div class="col" id="levAdress">
                         <label id="leveransadress">Leveransadress:</label><br>
-                        <input type="text" class ="adress" placeholder="Gatuadress" minlength="2" maxlength="50" required><br>
+                        <input type="text" name="address" class ="adress" placeholder="Gatuadress" minlength="2" maxlength="50" required><br>
                         <input type="text" class ="zipcode" placeholder="Postnummer" minlength="5" maxlength="5" pattern="\d+"><br>
                         <input type="text" class ="city" placeholder="Ort" min="2" maxlength="50" pattern="[A-Öa-ö]+" required>
                     </div>
                     <div class="col d-flex flex-column justify-content-center align align-items-center mt-4 mb-4">
                         <button type="submit" class="btn btn-primary buy-button">Buy now</button>
-                        <input class="btn btn-warning info-button" type="button"
-                            onclick="window.location.replace('index.html')" value="Cancel" />
+                        <input class="btn btn-warning info-button cancel-button" type="button" value="Cancel" />
                     </div>
                 </form>
             </div>
         </div>
     </div>
 
-    <div class="container-fluid m-0">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-11">
+            <div class="col-2 head-box"></div>
+            <div class="col-8">
                 <div class="head-box">
                     <h1 class="logo"><a href="index.html">Real Store</a></h1>
                 </div>
             </div>
-
-            <div class="col-1">
-                    <img id="kundvagn-ikon" src="./images/KundvagnFullNy.png" alt="Kundvagn" width="85" height="85" />
+            <div class="col-2 head-box">
+                <img id="kundvagn-ikon" src="./images/cart.png" alt="">
             </div>
         </div>
 
         <div class="row">
             <!--<div class="col-12">-->
                 <div class="center-box">
-                    <div class="row g-3 m-2" id="container-cards">
+                    <div class="row g-3 m-0" id="container-cards">
 
                     </div>
                 </div>

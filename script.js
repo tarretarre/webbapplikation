@@ -56,8 +56,7 @@ async function createCard() {
 
             // fyller kundvagnen
             const kundvagnIcon = document.getElementById('kundvagn-ikon');
-            kundvagnIcon.src = 'images/KundvagnFullNy.png';
-            
+            kundvagnIcon.src = './images/cartFull.png';
         });
 
         document.getElementById("container-cards").appendChild(card.firstChild);
@@ -157,3 +156,9 @@ function createProductList(){
     localStorage.setItem('productData', JSON.stringify(productData));
 
 }
+
+const cancelButton = document.querySelector('.cancel-button')
+const prodInfo = document.querySelector('.product-info')
+cancelButton.addEventListener('click', function(event){
+prodInfo.style.display="none"
+});
