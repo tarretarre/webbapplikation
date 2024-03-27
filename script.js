@@ -148,9 +148,9 @@ function createProductList(){
     console.log(product.price)
 
     var productData = {
-        Title: product.title,
-        Price: product.price.toString(),
-        Articlenumber: product.id.toString()
+        Item: product.title,
+        'Art. no': '#' + product.id.toString(),
+        Price: product.price.toString()        
     }; 
 
     localStorage.setItem('productData', JSON.stringify(productData));

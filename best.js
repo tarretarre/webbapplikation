@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     var datumBstElement = document.getElementById('datumBst')
-    datumBstElement.innerHTML = '<h5>Beställningsdatum: ' + genereraDagensDatum() + '</h5>';
+    datumBstElement.innerHTML = '<h5>Order date: </h5>' + genereraDagensDatum();
     
 });
 
@@ -46,9 +46,23 @@ function genereraDagensDatum() {
     var dagensDatum = idag.getDate();
     var dagensMånad = idag.getMonth() + 1;
     var dagensÅr = idag.getFullYear();
-    var tidPunkt = '['  +idag.getHours() + ': '  + idag.getMinutes() + ': ' + idag.getSeconds() + ']';
+    var timme = idag.getHours();
+    var minut = idag.getMinutes();
+    var sekund = idag.getSeconds();
+    var ampm = timme >= 12 ? 'pm' : 'am';
 
-    var datumText = dagensDatum + '-' + dagensMånad + '-' + dagensÅr + ' ' + tidPunkt;
+    if (timme > 12) {
+        timme = timme - 12;
+    } else if (timme === 0 ) {
+        timme = 12;
+    }
+
+    minut = minut < 10 ? '0' + minut : minut;
+    sekund = sekund < 10 ? '0' + sekund : sekund;
+
+    var tidPunkt = '[' + timme + ':' + minut + ':' + sekund + ' ' + ampm + ']';
+
+    var datumText = dagensÅr + '-' + dagensMånad + '-' + dagensDatum + ' ' + tidPunkt;
 
     return datumText;
 }
