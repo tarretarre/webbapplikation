@@ -52,11 +52,12 @@ body {
   flex-wrap: wrap;
   float: left;
   background-color: white;
-  height: 100%;
+  height: 300px;
   width: 100%;
   text-align: center;
   border-radius: 10px;
   color: #023E8A;
+  padding: 10px;
 }
 
 /* Clear floats after the columns */
@@ -113,6 +114,24 @@ a:hover {
   max-width: 25%;
 }
 
+.card-img-container {
+  height: 35%;
+}
+
+.card-body {
+  height: 50%;
+}
+
+.card-title-container {
+  margin-top: 10%;
+  height: 55%;
+  overflow-y: hidden;
+}
+
+.card-button-container {
+  height: 40%;
+}
+
 @media (max-width: 475px) {
   .product-info {
       width: 100%;
@@ -121,6 +140,9 @@ a:hover {
       top: 0;
       border-radius: 0px;
       padding: 10px;
+  }
+  .card-title-container {
+    height: 55%;
   }
 }
 
