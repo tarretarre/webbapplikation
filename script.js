@@ -67,13 +67,6 @@ async function createCard() {
 
 createCard();
 
-
-/* const buyButton2 = document.querySelector('.buy-button');
-buyButton2.addEventListener('click', function(event) {
-    event.preventDefault();
-    
-}); */
-
 const buyButton = document.querySelector('.buy-button');
 buyButton.addEventListener('click', function(event) {
     event.preventDefault();
@@ -95,11 +88,6 @@ buyButton.addEventListener('click', function(event) {
         firstInvalidInput.reportValidity();
         firstInvalidInput = null;
     } else {
-        /* const emailInput = document.querySelector('.mail');
-        if (!validateEmail(emailInput.value)) {
-            alert('Vänligen ange en giltig e-postadress.');
-            return;
-        } */
         createCustomerList();
         createProductList();
         window.location.href = 'order-conf.html';
