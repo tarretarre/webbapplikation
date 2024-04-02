@@ -54,7 +54,6 @@ async function createCard() {
             const buyButton = document.querySelector('.buy-button')
             buyButton.setAttribute('buyButtonId', product.id)
 
-            // fyller kundvagnen
             const kundvagnIcon = document.getElementById('kundvagn-ikon');
             kundvagnIcon.src = './images/cartFull.png';
         });
